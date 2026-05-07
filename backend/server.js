@@ -186,7 +186,7 @@ Suggestions: <three colors, comma separated>
 ========================== */
 app.post("/api/cart/add", async (req, res) => {
   try {
-    const { userId, productId, price } = req.body;
+    const { userId, productId, productName, price, quantity, size, color, image } = req.body;
 
     if (!userId || !productId || !price) {
       return res.status(400).json({ error: "Missing fields" });
@@ -204,8 +204,8 @@ app.post("/api/cart/add", async (req, res) => {
       );
     } else {
       await pool.query(
-        "INSERT INTO cart (user_id, product_id, quantity, price) VALUES (?, ?, ?, ?)",
-        [userId, productId, 1, price]
+        'INSERT INTO cart (user_id, product_id, product_name, price, quantity, size, color, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [userId, productId, productName, price, quantity, size || null, color || null, image || null]
       );
     }
 
