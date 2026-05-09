@@ -1,12 +1,12 @@
 {
   "experimentalServices": {
     "frontend": {
-      "entrypoint": "frontend",
+      "entrypoint": "app-7xi695mybpj5_app_version-7xiks8pxbk74/frontend",
       "routePrefix": "/",
       "framework": "vite"
     },
     "backend": {
-      "entrypoint": "backend",
+      "entrypoint": "app-7xi695mybpj5_app_version-7xiks8pxbk74/backend",
       "routePrefix": "/_/backend"
     }
   }
